@@ -7,8 +7,17 @@
             //echo "Hello {$id}";
             $filename = "{$id}.txt";
             if (file_exists($filename)) {
-                $file_contents = file_get_contents($filename);
-                echo $file_contents;
+                if(isset($_GET["result"])){
+                    if($_GET["result"] === "demand"){
+                        $file_contents = file_get_contents($filename);
+                        echo $file_contents;
+                    }else{
+                        echo "NA";
+                    }
+                }else{
+                    echo "registered";
+                }
+                
             } else {
                 echo "NA";
             }
@@ -16,7 +25,7 @@
         }else{
             echo "NA";
         }
-        echo "<br />Get request loading ";
+        
         
         
     }
